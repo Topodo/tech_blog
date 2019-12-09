@@ -1,0 +1,5 @@
+<% post = yield.presence || local_assigns.fetch(:post) %>
+<div class="post-preview-border">
+  <h2 style="text-align:center"><%= post.title %></h2>
+  <li class="post-btn"><%= link_to "Seguir leyendo", post, method: :get %></li>
+</div>

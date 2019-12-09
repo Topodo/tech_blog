@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tech Blog!</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <% @topics = Topic.all%>
+    <header>
+      <nav class="be-red white">
+        <ul class="no-list row center-xs middle-xs no-margin nav-height">
+          <li class="col-md"><%= link_to "TechBlog!", root_path, id: "logo" %></li>
+          <% @topics.each do |topic|%>
+            <li class="col-md"><%= link_to topic.title %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <%= yield %>
+  </body>
+</html>

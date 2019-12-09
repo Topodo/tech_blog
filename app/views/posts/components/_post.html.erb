@@ -1,0 +1,6 @@
+<% post = yield.presence || local_assigns.fetch(:post) %>
+<div class="post-border">
+  <h2 style="text-align:left"><%= post.title %></h2>
+  <h5 style="text-align:left; color:gray"><%= "Escrito por #{post.author}, el #{post.created_at.strftime("%d/%m/%Y")}" %></h5>
+  <p><%= post.body %></p>
+</div>
