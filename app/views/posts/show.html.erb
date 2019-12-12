@@ -1,4 +1,4 @@
 <p id="notice"><%= notice %></p>
 
 <%= render 'posts/components/post', post: @post %>
-<%= button_to 'Editar Post', edit_post_path(@post), class: "post-btn", style: "margin-left: 10%" %> |
+<%= link_to "Editar Post", edit_post_path(@post), :class => "button btn btn-dark post-btn", :style => "margin-left: 10%" %>

@@ -9,11 +9,11 @@
   <body>
     <% @topics = Topic.all%>
     <header>
-      <nav class="be-red white">
+      <nav class="navbar navbar-dark bg-dark be-red white">
         <ul class="no-list row center-xs middle-xs no-margin nav-height">
-          <li class="col-md"><%= link_to "TechBlog!", root_path, id: "logo" %></li>
+          <a class="navbar-brand" id="logo" href="/#">TechBlog!</a>
           <% @topics.each do |topic|%>
-            <li class="col-md"><%= link_to topic.title %></li>
+            <a class="col-md"><%= link_to topic.title, topic %></a>
           <% end %>
         </ul>
       </nav>

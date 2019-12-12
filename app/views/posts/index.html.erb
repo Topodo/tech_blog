@@ -8,7 +8,7 @@
   </thead>
   <tbody>
     <% @posts.each do |post| %>
-      <%= render 'posts/components/post_preview', post: post %>
+      <%= render 'posts/components/post_preview', :post => post %>
     <% end %>
   </tbody>
 </table>
