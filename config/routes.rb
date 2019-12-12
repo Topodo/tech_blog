@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root 'posts#index'
   resources :posts
   resources :topics
+  resources :topic do
+    resources :posts
+  end
 end

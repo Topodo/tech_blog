@@ -1,15 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-<h1 style="text-align:center"><%= "Posts de #{@topic.title}" %></h1>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @topic.posts.each do |post| %>
-      <%= render 'posts/components/post_preview', :post => post %>
-    <% end %>
-  </tbody>
-</table>
+<div class="col-md text-center">
+  <h1 class="title"><%= "Posts de #{@topic.title}" %></h1>
+  <br>
+  <%= link_to "Crear Post", new_topic_post_path(@topic), :class => "button btn btn-dark post-btn" %>
+  <% @topic.posts.each do |post| %>
+    <%= render 'posts/components/post_preview', :post => post %>
+  <% end %>
+</div>

@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
-
+<% if notice %>
+  <div id="notice" class="alert alert-success alert-style" data-dismiss="alert" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
 <%= render 'posts/components/post', post: @post %>
 <%= link_to "Editar Post", edit_post_path(@post), :class => "button btn btn-dark post-btn", :style => "margin-left: 10%" %>
