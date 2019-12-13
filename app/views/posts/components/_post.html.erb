@@ -2,5 +2,6 @@
 <div class="post-border">
   <h2 style="text-align:left"><%= post.title %></h2>
   <h5 style="text-align:left; color:gray"><%= "Escrito por #{post.author}, el #{post.created_at.strftime("%d/%m/%Y")}" %></h5>
+  <h6 style="text-align:left; color:gray"><%= "Visitado #{post.visits_count} veces." %></h6>
   <p><%= post.body %></p>
 </div>

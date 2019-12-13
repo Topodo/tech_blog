@@ -1,14 +1,17 @@
-<%= form_with model: @post do |form| %>
+<%= form_for(@post) do |form| %>
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <div id="notice" class="alert alert-danger alert-style" data-dismiss="alert" role="alert">
+        <%= error %>
+      </div>
+    <% end %>
+  <% end %>
   <%= form.hidden_field :topic_id, :value => params[:topic_id] %>
   <div class="form-area-size text-center">
     <div class="form-row">
       <div class="form-group col-md-6 text-left">
         <label for="inputTitle"> Título </label>
         <%= form.text_field :title, :class => "form-control", :id => "inputTitle" %>
-      </div>
-      <div class="form-group col-md-6 text-left">
-        <label for="inputAutor">Autor</label>
-        <%= form.text_field :author, :class => "form-control", :id => "inputAutor" %>
       </div>
     </div>
     <div class="form-group text-left">

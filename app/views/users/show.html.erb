@@ -1,0 +1,6 @@
+<div class="col-md">
+  <h1 class="title"><%= "Tus Posts" %></h1>
+  <% current_user.get_posts_desc.each do |post| %>
+    <%= render 'posts/components/post_preview', :post => post %>
+  <% end %>
+</div>

@@ -1,0 +1,40 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Registrarse</h5>
+            <form class="form-signin">
+
+              <div class="form-label-group">
+                <%= f.text_field :name, autofocus: true, autocomplete: "name", :class => "form-control", :placeholder => "Nombre de usuario" %>
+                <%= f.label :name, "Nombre de usuario" %><br />
+              </div>
+            
+              <div class="form-label-group">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control", :placeholder => "Correo electrónico" %>
+                <%= f.label :email, "Correo electrónico" %><br />
+              </div>
+
+              <div class="form-label-group">
+                <%= f.password_field :password, autocomplete: "new-password", :class => "form-control", :placeholder => "Contraseña" %>
+                <%= f.label :password, "Contraseña" %><br />
+              </div>
+
+              <div class="form-label-group">
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control", :placeholder => "Repetir contraseña" %>
+                <%= f.label :password_confirmation, "Repetir contraseña" %><br />
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Crear cuenta", :class => "btn btn-lg btn-primary btn-block btn-dark text-uppercase" %>
+              </div>
+              <hr class="my-4">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

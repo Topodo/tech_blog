@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
-<div class="col-md text-center">
+<div class="col-md">
   <h1 class="title"><%= "Posts de #{@topic.title}" %></h1>
-  <br>
-  <%= link_to "Crear Post", new_topic_post_path(@topic), :class => "button btn btn-dark post-btn" %>
-  <% @topic.posts.each do |post| %>
+  <% @topic.get_posts_desc.each do |post| %>
     <%= render 'posts/components/post_preview', :post => post %>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= link_to "Crear nuevo Post", new_topic_post_path(@topic), :class => "button btn btn-dark post-btn" %>
   <% end %>
 </div>

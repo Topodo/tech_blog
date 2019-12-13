@@ -4,12 +4,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order(visits_count: :desc)
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post.update_visits_count
   end
 
   # GET /posts/new
@@ -24,14 +25,15 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post creado exitosamente' }
         format.json { render :show, status: :created, location: @post }
       else
-        format.html { render :new }
+        flash[:errors] = @post.errors.full_messages
+        format.html { redirect_to new_topic_post_path(post_params[:topic_id]) }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
