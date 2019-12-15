@@ -1,3 +1,13 @@
+<% if flash[:delete_action] %>
+  <div id="notice" class="alert alert-success alert-style" data-dismiss="alert" role="alert">
+    <%= flash[:delete_action] %>
+  </div>
+<% end %>
+<% elsif flash[:update_action] %>
+  <div id="notice" class="alert alert-success alert-style" data-dismiss="alert" role="alert">
+    <%= flash[:update_action] %>
+  </div>
+<% end %>
 <div class="col-md">
   <h1 class="title"><%= "Tus Posts" %></h1>
   <% current_user.get_posts_desc.each do |post| %>

@@ -1,6 +1,13 @@
-<%= form_for(@post) do |form| %>
+<%= form_for @post, url: { action: 'update' } do |form| %>
   <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
+      <div id="notice" class="alert alert-danger alert-style" data-dismiss="alert" role="alert">
+        <%= error %>
+      </div>
+    <% end %>
+  <% end %>
+  <% if flash[:update_errors] %>
+    <% flash[:update_errors].each do |error| %>
       <div id="notice" class="alert alert-danger alert-style" data-dismiss="alert" role="alert">
         <%= error %>
       </div>
@@ -18,6 +25,6 @@
       <label for="textareaBody">Cuerpo</label>
       <%= form.text_area :body, :class => "form-control", :id => "textareaBody", :rows => 7, :placeholder => "Escribe aquí tu Post!" %>
     </div>
-    <%= form.submit "Crear Post", :class => "button btn btn-dark post-btn" %>
+    <%= form.submit "Editar Post", :class => "button btn btn-dark post-btn" %>
   </div>
 <% end %>

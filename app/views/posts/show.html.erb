@@ -1,7 +1,14 @@
-<% if notice %>
+<% if flash[:create_action] %>
   <div id="notice" class="alert alert-success alert-style" data-dismiss="alert" role="alert">
-    <%= notice %>
+    <%= flash[:create_action] %>
   </div>
 <% end %>
 <%= render 'posts/components/post', post: @post %>
-<%= link_to "Editar Post", edit_post_path(@post), :class => "button btn btn-dark post-btn", :style => "margin-left: 10%" %>
+<% if current_user.posts.include?(@post) %>
+  <tbody>
+    <tr>
+      <td><%= link_to "Editar Post", edit_post_path(@post), :class => "button btn btn-dark post-btn", :style => "margin-left: 10%" %></td>
+      <td><%= link_to 'Eliminar post', @post, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar el Post?' }, :class => "button btn btn-dark post-btn" %></td>
+    </tr>
+  </tbody>
+<% end %>
